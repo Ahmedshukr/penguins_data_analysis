@@ -11,4 +11,6 @@ library(palmerpenguins)
 data("penguins")
 View(penguins)
 
+str(penguins)
+
 
