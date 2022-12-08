@@ -1,62 +1,92 @@
-install.packages("tidyverse")
-install.packages("palmerpenguins")
+---
+title: "Penguins"
+author: "Ahmed Muhumed"
+date: "2022-12-08"
+output: html_document
+---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+Penguins is a dataset comprising various measurements of three different penguin species, namely Adelie, Gentoo, and Chinstrap. Same as Iris data which had measurements of three different species of the Iris flower.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
 library(palmerpenguins)
+```
 
-data("penguins")
-View(penguins)
 
+```{r}
 # Assessing the dataset
 head(penguins)
-tail(penguins)
+```
 
+```{r}
+#column names
 colnames(penguins)
+```
 
+```{r}
 # let us asses the structure of the dataset
 str(penguins)
+```
 
+```{r}
 #glimpse the dataset
 glimpse(penguins)
+```
 
+```{r}
 #count the penguin's species in the dataset
-x = penguins %>%
+penguins %>%
   count(species)
+```
 
+```{r}
 #summary of the dataset
 summary(penguins)
+```
 
+```{r}
 #looking for duplicated rows
 n_distinct(penguins)
+```
 
+```{r}
 # checking correlation between numeric variables
 penguins %>% 
   drop_na() %>% 
   select_if(is.numeric) %>% 
   cor()
+```
 
-penguins %>%
-    drop_na()
-
+```{r}
 ggplot(penguins) +
   geom_point(aes(flipper_length_mm, body_mass_g, color = species))
+```
 
+```{r}
 ggplot(penguins) +
   geom_point(aes(bill_depth_mm, body_mass_g, color = species))
+```
 
+```{r}
 ggplot(penguins) +
   geom_point(aes(bill_length_mm, body_mass_g, color = species))
-
+```
+```{r}
 ggplot(penguins) +
-  geom_point(aes(sex, body_mass_g, color = species))
+  geom_density(aes(x = species, fill = species, alpha = 0.4))
+```
 
-ggplot(penguins) +
-  geom_histogram(aes(x=bill_length_mm, fill = species))
-
-
-
+```{r}
 penguins_by_sex <- penguins %>% 
   filter(!is.na(sex)) %>% 
   group_by(species, sex) %>% 
@@ -64,9 +94,25 @@ penguins_by_sex <- penguins %>%
             bill_length_mm = mean(bill_length_mm),
             flipper_length_mm = mean(flipper_length_mm),
             body_mass_g = mean(body_mass_g))
+```
+```{r}
 ggplot(penguins_by_sex, aes(x = species, y = flipper_length_mm, fill = sex)) +
   geom_col(position = position_dodge())
+```
 
 
-ggplot(penguins) +
-  geom_density(aes(x = species, fill = species, alpha = 0.4))
+
+
+
+
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
