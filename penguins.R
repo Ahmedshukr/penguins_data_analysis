@@ -22,7 +22,7 @@ str(penguins)
 glimpse(penguins)
 
 #count the penguin's species in the dataset
-penguins %>%
+x = penguins %>%
   count(species)
 
 #summary of the dataset
@@ -38,21 +38,22 @@ penguins %>%
   cor()
 
 penguins %>%
-  drop_na()
+    drop_na()
 
 ggplot(penguins) +
   geom_point(aes(flipper_length_mm, body_mass_g, color = species))
 
-ggsave("")
+ggplot(penguins) +
+  geom_point(aes(bill_depth_mm, body_mass_g, color = species))
 
+ggplot(penguins) +
+  geom_point(aes(bill_length_mm, body_mass_g, color = species))
 
+ggplot(penguins) +
+  geom_point(aes(sex, body_mass_g, color = species))
 
-
-
-
-
-
-
+ggplot(penguins) +
+  geom_histogram(aes(x=bill_length_mm, fill = species))
 
 
 
