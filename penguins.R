@@ -37,8 +37,13 @@ penguins %>%
   select_if(is.numeric) %>% 
   cor()
 
+penguins %>%
+  drop_na()
 
+ggplot(penguins) +
+  geom_point(aes(flipper_length_mm, body_mass_g, color = species))
 
+ggsave("")
 
 
 
