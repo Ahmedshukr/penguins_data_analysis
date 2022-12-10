@@ -104,15 +104,3 @@ ggplot(penguins_by_sex, aes(x = species, y = flipper_length_mm, fill = sex)) +
 
 
 
-
-
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
