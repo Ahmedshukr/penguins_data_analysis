@@ -67,6 +67,6 @@ penguins_by_sex <- penguins %>%
 ggplot(penguins_by_sex, aes(x = species, y = flipper_length_mm, fill = sex)) +
   geom_col(position = position_dodge())
 
-
+# density plot
 ggplot(penguins) +
   geom_density(aes(x = species, fill = species, alpha = 0.4))
