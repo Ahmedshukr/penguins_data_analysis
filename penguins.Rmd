@@ -63,6 +63,11 @@ n_distinct(penguins)
 penguins %>% 
   distinct(species)
 ```
+```{r}
+#unique penguin islands
+penguins %>% 
+  distinct(island)
+```
 
 ```{r}
 # checking correlation between numeric variables
