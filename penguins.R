@@ -31,6 +31,10 @@ summary(penguins)
 #looking for duplicated rows
 n_distinct(penguins)
 
+#unique penguin species
+penguins %>% 
+  distinct(species)
+
 # checking correlation between numeric variables
 penguins %>% 
   drop_na() %>% 
