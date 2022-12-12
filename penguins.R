@@ -56,7 +56,7 @@ ggplot(penguins) +
   geom_histogram(aes(x=bill_length_mm, fill = species))
 
 
-# penguins
+# penguins by sex
 penguins_by_sex <- penguins %>% 
   filter(!is.na(sex)) %>% 
   group_by(species, sex) %>% 
