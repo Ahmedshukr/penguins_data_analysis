@@ -35,6 +35,10 @@ n_distinct(penguins)
 penguins %>% 
   distinct(species)
 
+#count
+penguins %>% 
+  count(species, island)
+
 # checking correlation between numeric variables
 penguins %>% 
   drop_na() %>% 
