@@ -58,6 +58,11 @@ summary(penguins)
 #looking for duplicated rows
 n_distinct(penguins)
 ```
+```{r}
+#unique penguin species
+penguins %>% 
+  distinct(species)
+```
 
 ```{r}
 # checking correlation between numeric variables
