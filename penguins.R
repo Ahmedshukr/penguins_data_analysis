@@ -35,7 +35,7 @@ n_distinct(penguins)
 penguins %>% 
   distinct(species)
 
-#count
+#count species and islands
 penguins %>% 
   count(species, island)
 
