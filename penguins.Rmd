@@ -68,6 +68,11 @@ penguins %>%
 penguins %>% 
   distinct(island)
 ```
+```{r}
+#count species and islands
+penguins %>% 
+  count(species, island)
+```
 
 ```{r}
 # checking correlation between numeric variables
